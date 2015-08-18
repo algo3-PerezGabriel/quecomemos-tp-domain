@@ -8,8 +8,10 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import queComemos.entrega3.dominio.Dificultad
 import queComemos.entrega3.repositorio.BusquedaRecetas
 import queComemos.entrega3.repositorio.RepoRecetas
+import org.uqbar.commons.utils.Observable
 
 //ENTREGA 1
+@Observable
 @Accessors
 class Usuario extends Miembro {
 	Double peso
