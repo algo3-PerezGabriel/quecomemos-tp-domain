@@ -1,5 +1,10 @@
 package ar.tp.dieta
 
+import org.uqbar.commons.utils.Observable
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Observable
+@Accessors
 class RecetaBuilder {
 
 	Receta receta

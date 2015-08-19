@@ -61,7 +61,7 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	}
 
 	def devolverNombre() {
-		getNombreDeLaReceta()
+		this.getNombreDeLaReceta()
 	}
 	
 	override soyInadecuadoParaCondicion(Condicion unaCondicion) {
