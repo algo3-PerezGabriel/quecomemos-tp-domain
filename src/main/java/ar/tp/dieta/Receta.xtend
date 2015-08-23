@@ -3,7 +3,7 @@ package ar.tp.dieta
 import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
-import com.google.common.collect.Lists
+import java.util.Iterator
 
 //@Observable
 @Accessors
@@ -20,6 +20,7 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	int añoDeCreacion
 
 	def void agregarIngrediente(Ingrediente unIngrediente){
+		unIngrediente.setIngrediente()
 		elementosDeReceta.add(unIngrediente)
 	}
 
@@ -29,7 +30,6 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	}
 
 	def void removerIngrediente(Ingrediente unIngrediente) {
-		unIngrediente.setIngrediente()
 		elementosDeReceta.remove(unIngrediente)
 	}
 
@@ -101,7 +101,12 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	}
 	
 	def getIngredientes(){
-		elementosDeReceta.filter[sosIngrediente]
+		val Iterator<ElementoDeReceta> ingredienteIter = (elementosDeReceta.filter[sosIngrediente]).iterator()
+		val List<ElementoDeReceta> ingredientes = new ArrayList<ElementoDeReceta>
+		while(ingredienteIter.hasNext){
+			ingredientes.add(ingredienteIter.next)
+		}
+		ingredientes
 	}
 	
 	def getCondimentos(){
