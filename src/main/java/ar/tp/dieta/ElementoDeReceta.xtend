@@ -7,7 +7,7 @@ import org.uqbar.commons.utils.Observable
 @Accessors
 abstract class ElementoDeReceta {
 	String nombre = new String
-	int cantidad = 0
+	String cantidad
 	boolean ingrediente = false
 	boolean condimento = false
 	
