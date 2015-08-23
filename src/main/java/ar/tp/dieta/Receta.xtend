@@ -3,6 +3,7 @@ package ar.tp.dieta
 import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
+import com.google.common.collect.Lists
 
 //@Observable
 @Accessors
@@ -23,10 +24,12 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	}
 
 	def void agregarCondimento(Ingrediente unCondimento) {
+		unCondimento.setCondimento()
 		elementosDeReceta.add(unCondimento)
 	}
 
 	def void removerIngrediente(Ingrediente unIngrediente) {
+		unIngrediente.setIngrediente()
 		elementosDeReceta.remove(unIngrediente)
 	}
 
@@ -95,6 +98,14 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	
 	def boolean tuNombreEsEste(String nombre){
 		nombreDeLaReceta.equals(nombre)
+	}
+	
+	def getIngredientes(){
+		elementosDeReceta.filter[sosIngrediente]
+	}
+	
+	def getCondimentos(){
+		elementosDeReceta.filter[sosCondimento]
 	}
 	
 }

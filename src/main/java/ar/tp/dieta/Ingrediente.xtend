@@ -11,4 +11,13 @@ class Ingrediente extends ElementoDeReceta{
 		unaCondicion.ingredienteEsInadecuado(this)
 	}
 	
+	def setCondimento(){
+		condimento = true
+		ingrediente = false
+	}
+	
+	def setIngrediente(){
+		ingrediente = true
+		condimento = false
+	}
 }
