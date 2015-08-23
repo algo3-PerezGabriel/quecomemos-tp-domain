@@ -12,7 +12,7 @@ class IngredienteBuilder {
 		ingrediente.setNombre(nombreIngrediente)
 	}		
 
-	public def IngredienteBuilder cantidad(String cantidad){
+	public def IngredienteBuilder cantidad(int cantidad){
 		ingrediente.setCantidad(cantidad)
 		return this
 	}
