@@ -1,5 +1,8 @@
 package ar.tp.dieta
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class IngredienteBuilder {
 
 	Ingrediente ingrediente

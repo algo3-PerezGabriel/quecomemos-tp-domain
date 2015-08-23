@@ -4,6 +4,7 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 
+//@Observable
 @Accessors
 class Receta extends ElementoDeReceta implements Cloneable{
 
