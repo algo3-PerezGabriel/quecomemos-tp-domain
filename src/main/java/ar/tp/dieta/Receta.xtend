@@ -111,9 +111,9 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	
 	def getCondimentos(){
 		val Iterator<ElementoDeReceta> condimentoIter = (elementosDeReceta.filter[sosCondimento]).iterator()
-		val List<ElementoDeReceta> condimentos = new ArrayList<ElementoDeReceta>
+		val List<String> condimentos = new ArrayList<String>
 		while(condimentoIter.hasNext){
-			condimentos.add(condimentoIter.next)
+			condimentos.add(condimentoIter.next.getNombre())
 		}
 		condimentos
 		
