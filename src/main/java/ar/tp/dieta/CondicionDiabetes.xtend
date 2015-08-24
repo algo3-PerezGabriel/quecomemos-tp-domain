@@ -5,10 +5,6 @@ import ar.tp.dieta.Condicion
 class CondicionDiabetes extends Condicion {
 
 	val String[] elementosNoRecomendables = #["azucar"] //Lista de "elementos" que no son buenos para una condicion
-
-	new (){
-		nombre = "diabetes"
-	}
 	
 	override esDiabetes() {
 		true

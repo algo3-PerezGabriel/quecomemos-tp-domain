@@ -6,10 +6,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class CondicionCeliaco extends Condicion {
 
-	new (){
-		nombre = "celiaco"
-	}
-	
 	override esCeliaco() {
 		true
 	}

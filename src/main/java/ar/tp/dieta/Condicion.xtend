@@ -7,8 +7,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 abstract class Condicion {
 
-	String nombre
-	
 	public def boolean esDiabetes() {
 		false
 	}
