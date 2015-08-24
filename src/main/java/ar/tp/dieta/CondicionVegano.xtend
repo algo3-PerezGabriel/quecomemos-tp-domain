@@ -7,6 +7,10 @@ class CondicionVegano extends Condicion {
 	//Lista de "elementos" que no son buenos para una condicion
 	List<String> elementosNoRecomendables = #["pollo", "carne", "chivito", "chori", "lomo"]
 
+	new (){
+		nombre = "vegano"
+	}
+	
 	override esVegano() {
 		true
 	}
