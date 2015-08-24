@@ -25,7 +25,7 @@ class CondicionesParaReceta {
 		condiciones.add(new CondicionDiabetes)
 	}
 	
-	def devolverListaString(){
+	def List<String> devolverListaString(){
 		val Iterator<Condicion> condicionIter =
 			condiciones.filter[condi | receta.soyInadecuadoParaCondicion(condi)].iterator()
 		val List<String> condicionesListString = new ArrayList<String>
