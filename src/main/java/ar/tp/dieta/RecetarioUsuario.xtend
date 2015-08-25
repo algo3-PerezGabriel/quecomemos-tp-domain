@@ -23,11 +23,12 @@ class RecetarioUsuario {
 			
 	
 	def getFavorita(){
+		Marcela.agregarRecetaFavorita(arrozConPollo.nombreDeLaReceta)
 		Marcela.contenesEstaRecetaEnFavs(arrozConPollo.nombreDeLaReceta)
 	}
 
 	def setFavorita(){
 		Marcela.agregarRecetaFavorita(arrozConPollo.nombreDeLaReceta)		
 	}
-
+	
 }
