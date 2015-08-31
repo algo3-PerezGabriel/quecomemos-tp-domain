@@ -212,5 +212,10 @@ class Usuario extends Miembro {
 	def tieneFavorita(Receta unaReceta){
 		recetasFavoritas.contains(unaReceta)
 	}
+
+	def quitarFavorita(Receta unaReceta){
+		if(this.tieneFavorita(unaReceta)){
+			recetasFavoritas.remove(unaReceta)}
+	}
 	
 }
