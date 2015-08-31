@@ -144,7 +144,7 @@ class Usuario extends Miembro {
 	}
 	
 	def void agregarRecetaFavorita(Receta unaReceta){
-		if(!recetasFavoritas.contains(unaReceta)){
+		if(!tieneFavorita(unaReceta)){
 			recetasFavoritas.add(unaReceta)
 		}
 	}
@@ -207,6 +207,10 @@ class Usuario extends Miembro {
 	
 	public def void agregarAccion(Accion unaAccion) {
 		acciones.add(unaAccion)
+	}
+	
+	def tieneFavorita(Receta unaReceta){
+		recetasFavoritas.contains(unaReceta)
 	}
 	
 }

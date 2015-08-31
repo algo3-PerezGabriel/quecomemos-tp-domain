@@ -45,6 +45,11 @@ class UsuarioBuilder {
 		usuario.agregarCondicion(unaCondicion)
 		return this
 	}
+	
+	public def UsuarioBuilder conRecetaFavorita(Receta unaReceta){
+		usuario.agregarRecetaFavorita(unaReceta)
+		return this
+	}
 
 	public def UsuarioBuilder preferencia(String unaPreferencia){
 		usuario.agregarPreferencia(unaPreferencia)

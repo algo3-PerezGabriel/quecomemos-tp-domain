@@ -1,5 +1,8 @@
 package ar.tp.dieta
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class RepoRecetas {
 
 	protected Ingrediente pollo
