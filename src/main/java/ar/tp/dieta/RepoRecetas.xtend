@@ -58,7 +58,7 @@ class RepoRecetas {
 		gelatinaFrambuesa = new RecetaBuilder("Gelatina de Frambuesa").calorias(120).autor("Dolly").dificultad("Facil").procesoPreparacion("Mezclar gelatina azucar y agua").temporada("Verano").agregarIngrediente(gelatina).agregarCondimento(azucar).build()
 		ensalada = new RecetaBuilder("Ensalada").calorias(100).autor("Antonio Gasalla").dificultad("Facil").procesoPreparacion("Cortar la verdura y mezclar. No olvidar de lavar").temporada("Todo el año").agregarIngrediente(cebolla).agregarIngrediente(lechuga).agregarIngrediente(tomate).agregarCondimento(sal).build()
 		arrozBlanco = new RecetaBuilder("Arroz Blanco").calorias(250).autor("Antonio Gasalla").dificultad("Facil").procesoPreparacion("Hervir el arroz. Comer.").temporada("Invierno").agregarIngrediente(arroz).build()
-		asado = new RecetaBuilder("Asado").calorias(2500).autor("Francis Mallman").dificultad("Mediana").procesoPreparacion("Prender el fuego y asar la carne. Condimentar a gusto").temporada("Todo el año").agregarIngrediente(pechitoDeCerdo).agregarIngrediente(vacio).agregarIngrediente(molleja).build()		
+		asado = new RecetaBuilder("Asado").calorias(2500).autor("Francis Mallman").dificultad("Mediana").procesoPreparacion("Prender el fuego y asar la carne. Condimentar a gusto").temporada("Todo el año").agregarIngrediente(pechitoDeCerdo).agregarIngrediente(vacio).agregarIngrediente(pollo).agregarIngrediente(molleja).build()		
 
 		recetarioPublico = new RecetarioPublico
 		recetarioPublico.recetas.add(arrozConPollo)
