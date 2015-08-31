@@ -22,6 +22,7 @@ class Usuario extends Miembro {
 	List<Receta> misRecetas = new ArrayList<Receta>
 	List<Grupo> misGrupos = new ArrayList<Grupo>
 	List<Receta> recetasFavoritas = new ArrayList<Receta>
+	List<Receta> ultimasConsultadas = new ArrayList<Receta>
 	List<ConsultaObserver> observadores = new ArrayList<ConsultaObserver>
 	List<Accion> acciones = new ArrayList<Accion>
 	String direccionCorreo
@@ -217,5 +218,9 @@ class Usuario extends Miembro {
 		if(this.tieneFavorita(unaReceta)){
 			recetasFavoritas.remove(unaReceta)}
 	}
+	
+	def sinFavoritas(){ recetasFavoritas.empty }
+	
+	def sinConsultadas() { ultimasConsultadas.empty}
 	
 }
