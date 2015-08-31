@@ -5,5 +5,5 @@ import queComemos.entrega3.repositorio.BusquedaRecetas
 
 interface Accion {
 	
-	def void execute(Usuario usuario, BusquedaRecetas busqueda, List<String> nombresRecetas)
+	def void execute(Usuario usuario, BusquedaRecetas busqueda, List<Receta> recetas)
 }

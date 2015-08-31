@@ -39,11 +39,6 @@ class RecetaBuilder {
 		return this
 	}
 
-	public def RecetaBuilder agregar(Ingrediente unIngrediente) {
-		receta.agregarIngrediente(unIngrediente)
-		return this
-	}
-
 	public def RecetaBuilder agregarIngrediente(Ingrediente unIngrediente) {
 		receta.agregarIngrediente(unIngrediente)
 		return this

@@ -6,9 +6,9 @@ import java.util.List
 
 class AgregaResultadosAFavoritos implements Accion {
 	
-	override execute(Usuario usuario, BusquedaRecetas busqueda, List<String> nombresRecetas) {
+	override execute(Usuario usuario, BusquedaRecetas busqueda, List<Receta> recetas) {
 		if(usuario.resultadoDeConsultasAFavoritos){
-			nombresRecetas.forEach[ receta | usuario.agregarRecetaFavorita(receta) ]
+			recetas.forEach[ receta | usuario.agregarRecetaFavorita(receta) ]
 		}
 	}
 	

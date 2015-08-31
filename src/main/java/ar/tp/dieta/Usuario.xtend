@@ -5,9 +5,6 @@ import java.util.GregorianCalendar
 import java.util.Iterator
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
-import queComemos.entrega3.dominio.Dificultad
-import queComemos.entrega3.repositorio.BusquedaRecetas
-import queComemos.entrega3.repositorio.RepoRecetas
 import org.uqbar.commons.utils.Observable
 
 //ENTREGA 1
@@ -24,8 +21,7 @@ class Usuario extends Miembro {
 	List<String> comidasQueNoMeGustan = new ArrayList<String>
 	List<Receta> misRecetas = new ArrayList<Receta>
 	List<Grupo> misGrupos = new ArrayList<Grupo>
-	List<String> recetasFavoritas = new ArrayList<String>
-	BusquedaRecetas busqueda = new BusquedaRecetas
+	List<Receta> recetasFavoritas = new ArrayList<Receta>
 	List<ConsultaObserver> observadores = new ArrayList<ConsultaObserver>
 	List<Accion> acciones = new ArrayList<Accion>
 	String direccionCorreo
@@ -147,14 +143,14 @@ class Usuario extends Miembro {
 		receta.esInadecuadaParaUsuario(this) 
 	}
 	
-	def void agregarRecetaFavorita(String nombre){
-		if(!recetasFavoritas.contains(nombre)){
-			recetasFavoritas.add(nombre)
+	def void agregarRecetaFavorita(Receta unaReceta){
+		if(!recetasFavoritas.contains(unaReceta)){
+			recetasFavoritas.add(unaReceta)
 		}
 	}
 	
 	def void agregarRecetaFavorita(Grupo unGrupo, String nombre){
-		recetasFavoritas.add(unGrupo.devolverRecetaDeMiembro(nombre).getNombreDeLaReceta)
+		recetasFavoritas.add(unGrupo.devolverRecetaDeMiembro(nombre))
 	}
 
 	def void agregarResultadosDeConsultasAFavoritos(){
@@ -165,8 +161,8 @@ class Usuario extends Miembro {
 		resultadoDeConsultasAFavoritos = false
 	}
 	
-	def boolean contenesEstaRecetaEnFavs(String nombreReceta){
-		recetasFavoritas.contains(nombreReceta)
+	def boolean contenesEstaRecetaEnFavs(Receta unaReceta){
+		recetasFavoritas.contains(unaReceta)
 	}
 
 	def List<Receta> recetasQuePuedoVer(){
@@ -194,47 +190,6 @@ class Usuario extends Miembro {
 		//Si existe un objeto de la misma clase que alguna de las condiciones en la coleccion condicionesPreexistentes, devuelvo true.
 		condicionesPreexistentes.exists[ condicion | condicion.getClass().equals(unaCondicion.getClass()) ]
 	}
-	
-	///////////////////////////////  METODOS PARA OBTENER RECETAS JSON //////////////////////////////////////////
-	
-	public def getRecetas(RepoRecetas repo, String nombre){ 
- 		busqueda.setNombre(nombre)
- 		val List<String> nombresRecetas = (new JsonSimpleReader).parseJsonNombre(repo.getRecetas(busqueda))
- 		observadores.forEach[it.actualizar(this, nombresRecetas, busqueda)]
- 		acciones.forEach[it.execute(this, busqueda, nombresRecetas)]
-		repo.getRecetas(busqueda)
- 	}
- 	
- 	public def getRecetas(RepoRecetas repo, Dificultad dificultad){
- 		busqueda.setDificultad(dificultad)
- 		val List<String> nombresRecetas = (new JsonSimpleReader).parseJsonNombre(repo.getRecetas(busqueda))
- 		observadores.forEach[it.actualizar(this, nombresRecetas, busqueda)]
- 		acciones.forEach[it.execute(this, busqueda, nombresRecetas)]
-		repo.getRecetas(busqueda)
- 	}
- 	
- 	public def getRecetas(RepoRecetas repo, String nombre, Dificultad dificultad){
-		busqueda => [
-			setNombre(nombre)
-			setDificultad(dificultad)
-		]
-		val List<String> nombresRecetas = (new JsonSimpleReader).parseJsonNombre(repo.getRecetas(busqueda))
- 		observadores.forEach[it.actualizar(this, nombresRecetas, busqueda)]
- 		acciones.forEach[it.execute(this, busqueda, nombresRecetas)]
-		repo.getRecetas(busqueda)		
- 	}
- 	
- 	public def getRecetas(RepoRecetas repo, String nombre, Dificultad dificultad, List<String> palabrasClave){
-		busqueda => [
-			setNombre(nombre)
-			setDificultad(dificultad)
-		]
-		palabrasClave.forEach[ palabraClave | busqueda.agregarPalabraClave(palabraClave) ]
-		val List<String> nombresRecetas = (new JsonSimpleReader).parseJsonNombre(repo.getRecetas(busqueda))
- 		observadores.forEach[it.actualizar(this, nombresRecetas, busqueda)]
- 		acciones.forEach[it.execute(this, busqueda, nombresRecetas)]
-		repo.getRecetas(busqueda)
- 	}
  	
  	///////////////////////////////////// METODO PARA FILTRAR BUSQUEDAS /////////////////////////////////////
  	

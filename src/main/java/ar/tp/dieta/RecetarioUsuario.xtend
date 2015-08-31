@@ -9,7 +9,8 @@ class RecetarioUsuario {
 
 	Usuario Marcela = new UsuarioBuilder("Marcela").peso(60.4).altura(1.83).fechaNacimiento(1992, 6, 4).sexo("F").rutina(new RutinaActiva).preferencia("carne").preferencia("pescado").email("mujersincondicion@test.com").build()
 
-	Receta arrozConPollo = new RecetaBuilder("Arroz Blanco")
+	RepoRecetas repositorio = new RepoRecetas	
+	/*Receta arrozConPollo = new RecetaBuilder("Arroz Blanco")
 			.calorias(10).autor("Antonio Gasalla")
 			.dificultad("Facil")
 			.procesoPreparacion("Hervir el arroz. Comer.")
@@ -19,16 +20,16 @@ class RecetarioUsuario {
 			.agregarCondimento(new IngredienteBuilder("sal").build())
 			.agregarCondimento(new IngredienteBuilder("Aceite").build())
 			.agregarCondimento(new IngredienteBuilder("Azafrán").build())
-			.build()
+			.build()*/
 			
 	
 	def getFavorita(){
-		Marcela.agregarRecetaFavorita(arrozConPollo.nombreDeLaReceta)
-		Marcela.contenesEstaRecetaEnFavs(arrozConPollo.nombreDeLaReceta)
+//		Marcela.agregarRecetaFavorita(arrozConPollo.nombreDeLaReceta)
+//		Marcela.contenesEstaRecetaEnFavs(arrozConPollo.nombreDeLaReceta)
 	}
 
 	def setFavorita(){
-		Marcela.agregarRecetaFavorita(arrozConPollo.nombreDeLaReceta)		
+//		Marcela.agregarRecetaFavorita(arrozConPollo.nombreDeLaReceta)		
 	}
 	
 }

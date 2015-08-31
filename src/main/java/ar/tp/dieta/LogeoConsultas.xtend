@@ -10,8 +10,8 @@ class LogeoConsultas implements Accion {
 	int max = 2 //Maximo 5 resultados.
 	private static final Logger logger = LogManager.getLogger(LogeoConsultas) 
 	
-	override execute(Usuario usuario, BusquedaRecetas busqueda, List<String> nombresRecetas) {
-		if(nombresRecetas.size >= max){
+	override execute(Usuario usuario, BusquedaRecetas busqueda, List<Receta> recetas) {
+		if(recetas.size >= max){
 			logger.trace("Log de recetas")
 			logger.trace(busqueda.nombre)
 			logger.trace(busqueda.dificultad)
