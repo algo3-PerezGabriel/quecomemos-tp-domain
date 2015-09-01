@@ -92,16 +92,16 @@ class Usuario extends Miembro {
 	}
 		
 	// Crear una receta privada
-	public def void crearReceta(String nombre, double calorias, String proceso, String dificultad, String temporada) {
-		var Receta nuevaReceta
-
-		nuevaReceta = new Receta => [
-			cambiarNombre(nombre)
-			setCalorias(calorias)
-			setProcesoDePreparacion(proceso)
-			setDificultadDePreparacion(dificultad)
-			setTemporadaALaQueCorresponde(temporada)
-		]
+	public def void crearReceta(String nombre, int calorias, String autor, String dificultad, String preparacion, String temporada, Ingrediente ingrediente1, Ingrediente ingrediente2 ) {
+		var Receta nuevaReceta = new RecetaBuilder(nombre)
+		.calorias(calorias)
+		.autor(autor)
+		.dificultad(dificultad)
+		.procesoPreparacion(preparacion)
+		.temporada(temporada)
+		.agregarIngrediente(ingrediente1)
+		.agregarIngrediente(ingrediente2)
+		.build()
 
 		misRecetas.add(nuevaReceta)
 	}
@@ -221,6 +221,8 @@ class Usuario extends Miembro {
 	
 	def sinFavoritas(){ recetasFavoritas.empty }
 	
-	def sinConsultadas() { ultimasConsultadas.empty}
+	def sinConsultadas() { 
+		ultimasConsultadas.empty
+	}
 	
 }

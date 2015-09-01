@@ -71,6 +71,7 @@ class RepoRecetas {
 		recetarioPublico.recetas.add(ensalada)
 		recetarioPublico.recetas.add(arrozBlanco)
 		recetarioPublico.recetas.add(asado)
+
 	}	
 		
 }

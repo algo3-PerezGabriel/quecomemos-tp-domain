@@ -135,4 +135,8 @@ class Receta extends ElementoDeReceta implements Cloneable{
 		}
 		return condicionesInadecuadas
 	}
+	
+	public def devolverme(){
+		this
+	}
 }
