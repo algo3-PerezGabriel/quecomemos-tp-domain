@@ -55,4 +55,8 @@ class RecetarioPublico implements Cloneable{
 		unaReceta
 	}
 	
+	def recetarioContiene(Receta unaReceta){
+		recetas.contains(unaReceta)
+	}
+	
 }

@@ -88,7 +88,6 @@ class Usuario extends Miembro {
 	public def void agregarRecetaDeGrupo(Grupo unGrupo, String nombreReceta){
 		var Receta recetaNueva = new Receta
 		misRecetas.add(unGrupo.copiarReceta(this, unGrupo, recetaNueva,nombreReceta))
-		
 	}
 		
 	// Crear una receta privada
@@ -113,6 +112,10 @@ class Usuario extends Miembro {
 			throw new BusinessException("No existe la receta en la lista de recetas.")
 		}
 		receta
+	}
+	
+	public def creeEstaReceta(Receta unaReceta){
+		misRecetas.contains(unaReceta)
 	}
 	
 	//Devuelve una subreceta
