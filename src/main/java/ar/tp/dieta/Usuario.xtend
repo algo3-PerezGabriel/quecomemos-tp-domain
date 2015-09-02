@@ -7,7 +7,6 @@ import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 
-//ENTREGA 1
 @Observable
 @Accessors
 class Usuario extends Miembro {
@@ -148,9 +147,11 @@ class Usuario extends Miembro {
 	}
 	
 	def void agregarRecetaFavorita(Receta unaReceta){
-		if(!tieneFavorita(unaReceta)){
 			recetasFavoritas.add(unaReceta)
-		}
+	}
+	
+	def quitarFavorita(Receta unaReceta){
+			recetasFavoritas.remove(unaReceta)
 	}
 	
 	def void agregarRecetaFavorita(Grupo unGrupo, String nombre){
@@ -215,11 +216,6 @@ class Usuario extends Miembro {
 	
 	def tieneFavorita(Receta unaReceta){
 		recetasFavoritas.contains(unaReceta)
-	}
-
-	def quitarFavorita(Receta unaReceta){
-		if(this.tieneFavorita(unaReceta)){
-			recetasFavoritas.remove(unaReceta)}
 	}
 	
 	def sinFavoritas(){ recetasFavoritas.empty }

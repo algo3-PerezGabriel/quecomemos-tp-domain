@@ -4,7 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 class RutinaSedentaria extends Rutina{
-	int tiempoDeEjercicio
+	int tiempoDeEjercicio = 0
 	
 	override rutinaEsNula() {
 		tiempoDeEjercicio.equals(0)
