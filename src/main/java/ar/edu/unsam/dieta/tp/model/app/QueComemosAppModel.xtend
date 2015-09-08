@@ -19,6 +19,18 @@ class QueComemosAppModel {
 	List<Receta> recetasEnGrilla = new ArrayList<Receta>
 	RecetarioPublico recetario = new RepoRecetas().getRecetarioPublico	//para cada login se crea nuevamente un recetario
 														// aca juega lo de persistencia.
+	List<String> temporadas = #["INVIERNO","OTOÑO","VERANO","PRIMAVERA","TODO EL AÑO"]
+	List<String> dificultades = #["FACIL","MEDIANA","DIFICIL"]
+	
+	String conNombre
+	String conDificultad
+	String conIngrediente
+	String conTemporada
+	int caloriasInferior
+	int caloriasSuperior
+	boolean conFiltrosUsuario
+	
+	
 	
 	new(Usuario elUsr){
 		theUser = elUsr
@@ -48,6 +60,10 @@ class QueComemosAppModel {
 	
 	def vistaDetalle() {
 		new VistaRecetaModel(theUser, recetaSeleccionada)
+	}
+	
+	def ejecutarBusqueda() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
 }

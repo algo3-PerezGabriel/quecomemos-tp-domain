@@ -22,6 +22,12 @@ class VistaRecetaModel {
 	def setEsFavorita(){
 		elUsuario.favearReceta(laReceta)
 		esFavorita = elUsuario.tieneFavorita(laReceta)
+			
+	//está mal el binding.
 	}
 	
+	def inicializarModeloCopiar() {
+		new CopiarRecetaModelo(elUsuario,laReceta)
+	}
+
 }
