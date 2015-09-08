@@ -50,6 +50,11 @@ class UsuarioBuilder {
 		usuario.agregarRecetaFavorita(unaReceta)
 		return this
 	}
+	
+	public def UsuarioBuilder conPassword(String unPass){
+		usuario.setPassword = unPass
+		return this
+	}
 
 	public def UsuarioBuilder preferencia(String unaPreferencia){
 		usuario.agregarPreferencia(unaPreferencia)

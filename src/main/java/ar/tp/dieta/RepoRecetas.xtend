@@ -35,6 +35,8 @@ class RepoRecetas {
 	
 	public RecetarioPublico recetarioPublico
 	
+	public Usuario usuarioPublico
+	
 	new(){	
 		arroz = new IngredienteBuilder("arroz").cantidad(500).build()
 		pollo = new IngredienteBuilder("pollo").cantidad(1000).build()
@@ -54,24 +56,102 @@ class RepoRecetas {
 		azucar = new IngredienteBuilder("azucar").cantidad(500).build()
 		azafran = new IngredienteBuilder("azafran").cantidad(2).build()
 		sal = new IngredienteBuilder("sal").cantidad(2).build()
+		
+		usuarioPublico = new UsuarioBuilder("Publico")
+								.peso(100.4)
+								.altura(1.89)
+								.fechaNacimiento(1990, 4, 3)
+								.sexo("M")
+								.rutina(new RutinaSedentaria)
+								.build()
+		
+		arrozConPollo = new RecetaBuilder("Arroz con Pollo")
+				.calorias(500)
+				.owner(usuarioPublico)
+				.dificultad("Mediana")
+				.procesoPreparacion("Hervir el arroz con azafran y agregar el pollo previamente salteado")
+				.temporada("Invierno")
+				.agregarIngrediente(arroz)
+				.agregarIngrediente(pollo)
+				.agregarCondimento(azafran)
+				.build()
 				
-		arrozConPollo = new RecetaBuilder("Arroz con Pollo").calorias(500).autor("Carlos Nahir").dificultad("Mediana").procesoPreparacion("Hervir el arroz con azafran y agregar el pollo previamente salteado").temporada("Invierno").agregarIngrediente(arroz).agregarIngrediente(pollo).agregarCondimento(azafran).build()
-		fideosConManteca = new RecetaBuilder("Fideos con manteca").calorias(600).autor("Narda Lepes").dificultad("Facil").procesoPreparacion("Hervir los fideos. Colar.").temporada("Invierno").agregarIngrediente(pasta).agregarCondimento(sal).agregarIngrediente(manteca).build()
-		lomoMostaza = new RecetaBuilder("Lomo a la Mostaza").calorias(1200).autor("Mirtha Legrand").dificultad("Dificil").procesoPreparacion("Poner el lomo con la mostaza en el horno.").temporada("Verano").agregarIngrediente(lomo).agregarCondimento(sal).agregarCondimento(mostaza).build()
-		gelatinaFrambuesa = new RecetaBuilder("Gelatina de Frambuesa").calorias(120).autor("Dolly").dificultad("Facil").procesoPreparacion("Mezclar gelatina azucar y agua").temporada("Verano").agregarIngrediente(gelatina).agregarCondimento(azucar).build()
-		ensalada = new RecetaBuilder("Ensalada").calorias(100).autor("Antonio Gasalla").dificultad("Facil").procesoPreparacion("Cortar la verdura y mezclar. No olvidar de lavar").temporada("Todo el año").agregarIngrediente(cebolla).agregarIngrediente(lechuga).agregarIngrediente(tomate).agregarCondimento(sal).build()
-		arrozBlanco = new RecetaBuilder("Arroz Blanco").calorias(250).autor("Antonio Gasalla").dificultad("Facil").procesoPreparacion("Hervir el arroz. Comer.").temporada("Invierno").agregarIngrediente(arroz).build()
-		asado = new RecetaBuilder("Asado").calorias(2500).autor("Francis Mallman").dificultad("Mediana").procesoPreparacion("Prender el fuego y asar la carne. Condimentar a gusto").temporada("Todo el año").agregarIngrediente(pechitoDeCerdo).agregarIngrediente(vacio).agregarIngrediente(pollo).agregarIngrediente(molleja).build()		
-
+		fideosConManteca = new RecetaBuilder("Fideos con manteca")
+				.calorias(600)
+				.owner(usuarioPublico)
+				.dificultad("Facil")
+				.procesoPreparacion("Hervir los fideos. Colar.")
+				.temporada("Invierno")
+				.agregarIngrediente(pasta)
+				.agregarCondimento(sal)
+				.agregarIngrediente(manteca)
+				.build()
+				
+		lomoMostaza = new RecetaBuilder("Lomo a la Mostaza")
+				.calorias(1200)
+				.owner(usuarioPublico)
+				.dificultad("Dificil")
+				.procesoPreparacion("Poner el lomo con la mostaza en el horno.")
+				.temporada("Verano")
+				.agregarIngrediente(lomo)
+				.agregarCondimento(sal)
+				.agregarCondimento(mostaza)
+				.build()
+				
+		gelatinaFrambuesa = new RecetaBuilder("Gelatina de Frambuesa")
+				.calorias(120)
+				.owner(usuarioPublico)
+				.dificultad("Facil")
+				.procesoPreparacion("Mezclar gelatina azucar y agua")
+				.temporada("Verano")
+				.agregarIngrediente(gelatina)
+				.agregarCondimento(azucar)
+				.build()
+		
+		ensalada = new RecetaBuilder("Ensalada")
+				.calorias(100)
+				.owner(usuarioPublico)
+				.dificultad("Facil")
+				.procesoPreparacion("Cortar la verdura y mezclar. No olvidar de lavar")
+				.temporada("Todo el año")
+				.agregarIngrediente(cebolla)
+				.agregarIngrediente(lechuga)
+				.agregarIngrediente(tomate)
+				.agregarCondimento(sal)
+				.build()
+		
+		arrozBlanco = new RecetaBuilder("Arroz Blanco")
+				.calorias(250)
+				.owner(usuarioPublico)
+				.dificultad("Facil")
+				.procesoPreparacion("Hervir el arroz. Comer.")
+				.temporada("Invierno")
+				.agregarIngrediente(arroz)
+				.build()
+		
+		asado = new RecetaBuilder("Asado")
+				.calorias(2500)
+				.owner(usuarioPublico)
+				.dificultad("Mediana")
+				.procesoPreparacion("Prender el fuego y asar la carne. Condimentar a gusto")
+				.temporada("Todo el año")
+				.agregarIngrediente(pechitoDeCerdo)
+				.agregarIngrediente(vacio)
+				.agregarIngrediente(pollo)
+				.agregarIngrediente(molleja)
+				.build()		
+		
 		recetarioPublico = new RecetarioPublico
-		recetarioPublico.recetas.add(arrozConPollo)
-		recetarioPublico.recetas.add(lomoMostaza)
-		recetarioPublico.recetas.add(fideosConManteca)
-		recetarioPublico.recetas.add(gelatinaFrambuesa)
-		recetarioPublico.recetas.add(ensalada)
-		recetarioPublico.recetas.add(arrozBlanco)
-		recetarioPublico.recetas.add(asado)
-
+		recetarioPublico.recetas =>[
+			add(asado)
+			add(arrozConPollo)
+			add(lomoMostaza)
+			add(fideosConManteca)
+			add(gelatinaFrambuesa)
+			add(ensalada)
+			add(arrozBlanco)
+		]
+		
 	}	
 		
 }

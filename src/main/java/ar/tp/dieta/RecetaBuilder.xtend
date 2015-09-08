@@ -19,8 +19,8 @@ class RecetaBuilder {
 		return this
 	}
 
-	public def RecetaBuilder autor(String autor) {
-		receta.setAutor(autor)
+	public def RecetaBuilder owner(Usuario autor) {
+		receta.setOwner(autor)
 		return this
 	}
 

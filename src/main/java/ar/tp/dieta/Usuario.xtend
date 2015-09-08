@@ -26,6 +26,7 @@ class Usuario extends Miembro {
 	List<Accion> acciones = new ArrayList<Accion>
 	String direccionCorreo
 	Boolean resultadoDeConsultasAFavoritos = false
+	String password
 	
 	public def setFechaDeNacimiento(int ano, int mes, int diaDelMes) {
 		fechaDeNacimiento = new GregorianCalendar(ano, mes, diaDelMes)
@@ -90,10 +91,10 @@ class Usuario extends Miembro {
 	}
 		
 	// Crear una receta privada
-	public def void crearReceta(String nombre, int calorias, String autor, String dificultad, String preparacion, String temporada, Ingrediente ingrediente1, Ingrediente ingrediente2 ) {
+	public def void crearReceta(String nombre, int calorias, String dificultad, String preparacion, String temporada, Ingrediente ingrediente1, Ingrediente ingrediente2 ) {
 		var Receta nuevaReceta = new RecetaBuilder(nombre)
 		.calorias(calorias)
-		.autor(autor)
+		.owner(this)
 		.dificultad(dificultad)
 		.procesoPreparacion(preparacion)
 		.temporada(temporada)
@@ -229,4 +230,9 @@ class Usuario extends Miembro {
 		ultimasConsultadas.empty
 	}
 	
+	def validarPassword(String unaPass) {
+		if(unaPass.equals(password)){this}
+		else{ //mandar excepcion de password incorrecto
+		}
+	}	
 }
