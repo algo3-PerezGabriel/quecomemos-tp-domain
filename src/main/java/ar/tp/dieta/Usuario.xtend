@@ -154,6 +154,11 @@ class Usuario extends Miembro {
 			recetasFavoritas.remove(unaReceta)
 	}
 	
+	def favearReceta(Receta unaReceta){
+		if(recetasFavoritas.contains(unaReceta)){ recetasFavoritas.remove(unaReceta)}
+		else{recetasFavoritas.add(unaReceta)}
+	}
+	
 	def void agregarRecetaFavorita(Grupo unGrupo, String nombre){
 		recetasFavoritas.add(unGrupo.devolverRecetaDeMiembro(nombre))
 	}

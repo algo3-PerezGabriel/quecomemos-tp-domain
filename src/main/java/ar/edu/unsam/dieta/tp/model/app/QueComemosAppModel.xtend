@@ -69,17 +69,11 @@ class QueComemosAppModel extends RepoRecetas {
 	}
 	
 	def favearReceta(){
-		if(theUser.tieneFavorita(recetaSeleccionada)){
-			theUser.quitarFavorita(recetaSeleccionada)
-		}
-		else{
-			theUser.agregarRecetaFavorita(recetaSeleccionada)
-		}
+		theUser.favearReceta(recetaSeleccionada)
 	}
 	
 	def vistaDetalle() {
-		var modeloDetalle = new VistaRecetaModel(theUser, recetaSeleccionada)
-		modeloDetalle
+		new VistaRecetaModel(theUser, recetaSeleccionada)
 	}
 	
 }

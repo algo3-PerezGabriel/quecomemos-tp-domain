@@ -9,20 +9,19 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class VistaRecetaModel {
 
-	Usuario elUsuario
-	Receta laReceta
+	Usuario elUsuario = new Usuario
+	boolean esFavorita
+	Receta laReceta = new Receta()
 	
 	new(Usuario unUsuario,Receta unaReceta){
 		elUsuario = unUsuario
+		esFavorita = unUsuario.tieneFavorita(unaReceta)
 		laReceta = unaReceta
 	}
 	
-	def getEsFavorita(){
-		elUsuario.tieneFavorita(laReceta)
-	}
-	
 	def setEsFavorita(){
-		elUsuario.agregarRecetaFavorita(laReceta)
+		elUsuario.favearReceta(laReceta)
+		esFavorita = elUsuario.tieneFavorita(laReceta)
 	}
 	
 }
