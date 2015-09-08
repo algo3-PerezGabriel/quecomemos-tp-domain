@@ -8,6 +8,9 @@ import ar.tp.dieta.Receta
 import java.util.List
 import java.util.ArrayList
 import ar.tp.dieta.RecetarioPublico
+import ar.tp.dieta.Busqueda
+import ar.tp.dieta.Filtro
+import ar.tp.dieta.FiltroPorTemporada
 
 @Observable
 @Accessors
@@ -30,8 +33,6 @@ class QueComemosAppModel {
 	int caloriasSuperior
 	boolean conFiltrosUsuario
 	
-	
-	
 	new(Usuario elUsr){
 		theUser = elUsr
 		recetasEnGrilla = this.decidirRecetas()
@@ -49,7 +50,7 @@ class QueComemosAppModel {
 			}
 			else{ //Si no hay recetas favoritas ni busquedas
 				outputTituloGrilla = "Estas son las recetas top del momento"
-				recetario.getRecetas()
+				recetario.getRecetas() //aca habría que hacer un recetario.getTopten() da igual para ejemplo
 			}
 		}
 	}
@@ -63,7 +64,24 @@ class QueComemosAppModel {
 	}
 	
 	def ejecutarBusqueda() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		outputTituloGrilla = "Resultado de la busqueda"
+		val Busqueda busqueda = new Busqueda()
+		busqueda.filtros = this.crearFiltros()
+		
+		recetasEnGrilla = busqueda.aplicarBusquedaUsuario(theUser, recetario.getRecetas)
+		theUser.ultimasConsultadas = recetasEnGrilla
+		//tiene que ejecutar la busqueda,
+		// y dejar el resultado en recetasEnGrilla, tmb modificar el outputTituloGrilla
+		// tambien, se graba el resultado en las ultimas buscadas del usuario (no funncionaria por no haber persistencia)
+		
+	}
+	
+	def crearFiltros() {// solamente le aplico un filtro
+		var List<Filtro> filtros = 	new ArrayList<Filtro>
+		
+		filtros.add(new FiltroPorTemporada(conTemporada))
+		
+		filtros
 	}
 	
 }

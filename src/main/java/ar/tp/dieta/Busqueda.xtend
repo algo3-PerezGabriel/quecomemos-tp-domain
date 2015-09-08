@@ -1,10 +1,15 @@
 package ar.tp.dieta
 
-import java.util.List
 import java.util.ArrayList
+import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
+@Accessors
+@Observable
 class Busqueda {
-	List<Filtro> filtros = new ArrayList<Filtro>
+	
+	public List<Filtro> filtros = new ArrayList<Filtro>
 	
 	def void agregarFiltro(Filtro unFiltro){
 		filtros.add(unFiltro)
