@@ -79,6 +79,10 @@ class Usuario extends Miembro {
 		preferencias.contains("fruta")
 	}
 	
+	public def void agregarReceta(Receta unaReceta){
+		unaReceta.setOwner(this)
+		misRecetas.add(unaReceta)
+	}
 	//Copiar una recetaPublica a la coleccion de recetas del usuario
 	public def void agregarRecetaPublicaAMiColeccion(String nombreReceta) {
 		var Receta recetaNueva = new Receta

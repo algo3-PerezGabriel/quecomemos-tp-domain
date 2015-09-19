@@ -10,7 +10,7 @@ import java.util.Iterator
 class Receta extends ElementoDeReceta implements Cloneable{
 
 	String nombreDeLaReceta
-	double calorias
+	int calorias
 	ArrayList<ElementoDeReceta> elementosDeReceta = new ArrayList<ElementoDeReceta> //Integra ingredientes, condimentos y subrecetas.	
 	String procesoDePreparacion
 	String dificultadDePreparacion
@@ -138,5 +138,16 @@ class Receta extends ElementoDeReceta implements Cloneable{
 	
 	public def devolverme(){
 		this
+	}
+	
+	 def clonateConNombre(String nombreNuevo){
+		var Receta receta = new RecetaBuilder(nombreNuevo)
+								.calorias(this.calorias)
+								.dificultad(this.dificultadDePreparacion)
+								.owner(this.owner)
+								.procesoPreparacion(this.procesoDePreparacion)
+								.build()
+			receta.elementosDeReceta = this.elementosDeReceta
+			receta
 	}
 }

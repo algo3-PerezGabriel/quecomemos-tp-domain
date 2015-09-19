@@ -11,6 +11,7 @@ import ar.tp.dieta.RecetarioPublico
 import ar.tp.dieta.Busqueda
 import ar.tp.dieta.Filtro
 import ar.tp.dieta.FiltroPorTemporada
+import ar.tp.dieta.FiltroPorNombre
 
 @Observable
 @Accessors
@@ -20,8 +21,9 @@ class QueComemosAppModel {
 	String outputTituloGrilla
 	Receta recetaSeleccionada
 	List<Receta> recetasEnGrilla = new ArrayList<Receta>
-	RecetarioPublico recetario = new RepoRecetas().getRecetarioPublico	//para cada login se crea nuevamente un recetario
-														// aca juega lo de persistencia.
+	RecetarioPublico recetario = new RepoRecetas().getRecetarioPublico	
+		//para cada login se crea nuevamente un recetario
+		// aca juega lo de persistencia, singleton etc
 	List<String> temporadas = #["INVIERNO","OTOÑO","VERANO","PRIMAVERA","TODO EL AÑO"]
 	List<String> dificultades = #["FACIL","MEDIANA","DIFICIL"]
 	
@@ -39,18 +41,19 @@ class QueComemosAppModel {
 	}
 	
 	def decidirRecetas(){
-		if(!theUser.sinFavoritas){ //Si hay recetas Favoritas.
+		if(!theUser.sinFavoritas){ 
 			outputTituloGrilla = "Estas son tus recetas favoritas"
 			theUser.getRecetasFavoritas()
 		}
 		else{
-			if(!theUser.sinConsultadas){ //Si hay busquedas
+			if(!theUser.sinConsultadas){ 
 				outputTituloGrilla = "Estas fueron tus últimas consultas"
 				theUser.getUltimasConsultadas()
 			}
 			else{ //Si no hay recetas favoritas ni busquedas
 				outputTituloGrilla = "Estas son las recetas top del momento"
-				recetario.getRecetas() //aca habría que hacer un recetario.getTopten() da igual para ejemplo
+				recetario.getRecetas()
+				 //aca habría que hacer un recetario.getTopten() da igual para ejemplo
 			}
 		}
 	}
@@ -79,7 +82,10 @@ class QueComemosAppModel {
 	def crearFiltros() {// solamente le aplico un filtro
 		var List<Filtro> filtros = 	new ArrayList<Filtro>
 		
-		filtros.add(new FiltroPorTemporada(conTemporada))
+		filtros=>[
+			add(new FiltroPorTemporada(conTemporada))
+			//add(new FiltroPorNombre(conNombre))
+			]
 		
 		filtros
 	}

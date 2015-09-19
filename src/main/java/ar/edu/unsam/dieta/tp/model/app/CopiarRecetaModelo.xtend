@@ -25,5 +25,7 @@ class CopiarRecetaModelo {
 	
 	def void copiarReceta(){
 		//este método efectivamente copia la receta con el usuario y el nombreReceta
+		//la agrega en las recetas del usr
+		elUsr.agregarReceta(laReceta.clonateConNombre(nombreReceta))
 	}
 }

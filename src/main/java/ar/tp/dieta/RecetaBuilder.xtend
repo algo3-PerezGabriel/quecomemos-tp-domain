@@ -49,10 +49,9 @@ class RecetaBuilder {
 		return this
 	}
 	public def Receta build() {
-		if (receta.elementosDeReceta.isEmpty()) {
-			throw new BusinessException("Receta sin ingredientes")
-		}
+//		if (receta.elementosDeReceta.isEmpty()) {
+//			throw new BusinessException("Receta sin ingredientes")
+//		}
 		return receta
 	}
-
 }

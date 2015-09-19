@@ -9,17 +9,17 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class VistaRecetaModel {
 
-	Usuario elUsuario = new Usuario
-	boolean esFavorita
-	Receta laReceta = new Receta()
+	Usuario elUsuario 
+	Receta laReceta
 	
 	new(Usuario unUsuario,Receta unaReceta){
 		elUsuario = unUsuario
-		esFavorita = unUsuario.tieneFavorita(unaReceta)
 		laReceta = unaReceta
 	}
 	
-	def setEsFavorita(){
+	def getEsFavorita() { elUsuario.tieneFavorita(laReceta) }
+	
+	def void setEsFavorita(boolean valor){ //valor viene del check y en base a eso faveo o desfaveo
 		elUsuario.favearReceta(laReceta)
 		esFavorita = elUsuario.tieneFavorita(laReceta)
 			

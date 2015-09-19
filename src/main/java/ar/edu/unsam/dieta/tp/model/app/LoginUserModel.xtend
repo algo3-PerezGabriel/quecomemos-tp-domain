@@ -15,10 +15,10 @@ class LoginUserModel {
 	String passUsuario
 	Usuario elUsuario
 	
-	def validarLogin() {
+	def validarLogin() { //habría que laburarlo con excepciones para atrapar los errores
 		//aca que abra la ventana etc.
 		elUsuario = repoUsuarios.logearUsuario(nombreUsuario, passUsuario)
-		 //esto devuelve el usuario o error
+		 //esto devolvería el usuario o la excepcion
 		new QueComemosAppModel(elUsuario)
 	}
 	
