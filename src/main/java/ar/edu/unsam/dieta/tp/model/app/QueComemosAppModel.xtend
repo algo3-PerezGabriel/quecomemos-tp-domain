@@ -11,7 +11,6 @@ import ar.tp.dieta.RecetarioPublico
 import ar.tp.dieta.Busqueda
 import ar.tp.dieta.Filtro
 import ar.tp.dieta.FiltroPorTemporada
-import ar.tp.dieta.FiltroPorNombre
 
 @Observable
 @Accessors
